@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Socials from "../components/Socials"
 import Image from "next/image";
-import logo from "../public/logo.svg"
+import logo from "../public/logo.png"
 
 const Header = () => {
   return (
@@ -14,8 +14,8 @@ const Header = () => {
             <Image
               src={logo}
               alt="log"
-              width={200}
-              height={48}
+              width={250}
+              height={55}
               priority={true}
             />
           </Link>

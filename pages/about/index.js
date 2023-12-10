@@ -73,8 +73,12 @@ const aboutData = [
     ],
   },
   {
-    title: 'credentials',
+    title: 'Education',
     info: [
+      {
+        title: 'BSc - Geography and Environment(Jagannath University)',
+        stage: '2020',
+      },
       {
         title: 'Web Development - Programming Hero(Boot Camp)',
         stage: '2023',

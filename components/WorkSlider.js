@@ -15,7 +15,7 @@ const WorkSlider = () => {
         clickable: true
       }}
       modules={[Pagination]}
-      className="h-[400px] sm:h-[340px] sm:w-[400px]"
+      className="h-[290px] sm:h-[340px] sm:w-[400px]"
     >
       <SwiperSlide>
         <div className="relative group">

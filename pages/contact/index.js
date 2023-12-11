@@ -7,12 +7,12 @@ import toast from "react-hot-toast";
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setLoading(true); 
+    setLoading(true);
 
     emailjs.sendForm('service_nbmux6f', 'template_t3455i9', form.current, 'N7sCXhxC1NSQ36mKf')
       .then((result) => {
@@ -26,18 +26,28 @@ const Contact = () => {
         console.log(error.text);
       })
       .finally(() => {
-        setLoading(false); 
+        setLoading(false);
       });
   };
 
   return (
-    <div className="h-full bg-primary/30">
-      <div className="container mx-auto py-28 text-center xl:text-left flex items-center justify-center h-full">
+    <div className="h-full bg-[#005c00]/60">
+      <div className="container mx-auto py-28 text-center xl:text-left flex items-center justify-center h-full overflow-y-auto xl:overflow-y-hidden md:h-[350px] lg:h-[500px]">
         <div className="flex flex-col w-full max-w-[700px]">
-          <h2 className="text-center h2 mb-10">
+          <motion.h2
+            variants={fadeIn('down', 0.4)}
+            initial='hidden'
+            animate='show'
+            exit='hidden'
+            className="text-center h2 mt-10 md:mt-24 lg:mt-10  lg:mb-10 ">
             Let&apos;s <span className="text-accent">connect</span>
-          </h2>
-          <form id="contactForm" ref={form} onSubmit={sendEmail} className="flex-1 flex flex-col gap-5 w-full mx-auto">
+          </motion.h2>
+          <motion.form
+            variants={fadeIn('up', 0.6)}
+            initial='hidden'
+            animate='show'
+            exit='hidden'
+            id="contactForm" ref={form} onSubmit={sendEmail} className="flex-1 flex flex-col gap-5 w-full mx-auto">
             <div className="flex gap-x-3 w-full">
               <input name="user_name" type="text" placeholder="name" className="bg-transparent border-2 rounded-lg w-1/2" required />
               <input name="user_email" type="email" placeholder="Email" className="bg-transparent border-2 rounded-lg w-1/2" required />
@@ -54,9 +64,14 @@ const Contact = () => {
                 />
               )}
             </div>
-          </form>
+          </motion.form>
         </div>
       </div>
+      <footer className="footer footer-center p-4 bg-transparent text-white absolute top-[75%]">
+        <aside>
+          <p className="text-white mt-0 lg:mt-20">Copyright © 2023 - All right reserved by <span >shohaib hossain</span></p>
+        </aside>
+      </footer>
     </div>
   );
 };

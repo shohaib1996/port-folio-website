@@ -90,44 +90,63 @@ const aboutData = [
 const About = () => {
   const [index, setIndex] = useState(0)
   return (
-    <div className="h-full bg-primary/30 py-20 xl:py-28 text-center xl:text-left">
+    <div className="h-full bg-[#005c00]/50 py-20 xl:py-28 text-center xl:text-left">
       <Circles />
       <motion.div
         variants={fadeIn('right', 0.2)}
         initial="hidden"
         animate="show"
         exit="hidden"
-        className="hidden xl:flex absolute bottom-0 -left-[200px] h-[400px]">
+        className="hidden xl:flex absolute bottom-0 -left-[150px] h-[350px]">
         <Avatar />
       </motion.div>
-      <div className="container mx-auto h-full flex flex-col items-center xl:flex-row mt-12">
+      <div className="container mx-auto  flex flex-col items-center xl:flex-row mt-12 overflow-y-auto xl:overflow-y-hidden h-[500px] md:h-[170px] lg:h-[350px]">
         <div className="flex-1 flex flex-col justify-center">
-          <h2 className="h2">
+          <motion.h2
+            variants={fadeIn('down', 0.2)}
+            initial='hidden'
+            animate='show'
+            exit='hidden'
+            className="h2">
             I am an ambitious and <span className="text-accent">passionate</span> MERN Stack Developer
-          </h2>
-          <p className="max-w-[500px] mx-auto xl:mx-0 mb-4 xl:mb-10 px-2 xl:px-0">
-            As an ambitious and passionate MERN Stack Developer, I am dedicated to mastering MongoDB, Express.js, React, and Node.js. With a focus on full-stack web development, I thrive on creating dynamic and scalable solutions. My commitment reflects a genuine love for crafting efficient web applications and a drive for continuous improvement in the ever-evolving tech landscape.
-          </p>
+          </motion.h2>
+          <motion.p
+            variants={fadeIn('up', 0.4)}
+            initial='hidden'
+            animate='show'
+            exit='hidden'
+            className="max-w-[500px] mx-auto xl:mx-0 mb-4 xl:mb-10 px-2 xl:px-0">
+            As an ambitious and passionate MERN Stack Developer, I am dedicated to mastering MongoDB, Express.js, React, and Node.js. With a focus on full-stack web development, I thrive on creating dynamic and scalable solutions. My commitment reflects a genuine love for crafting efficient web applications and a drive for continuous improvement.
+          </motion.p>
         </div>
-        <div className="flex flex-col w-full xl:max-w-[48%] h-[480px]">
+        <div className="flex flex-col w-full xl:max-w-[48%] h-[350px]">
           <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
             {aboutData.map((item, itemIndex) => {
               return (
-                <div
+                <motion.div
+                  variants={fadeIn('down', 0.4)}
+                  initial='hidden'
+                  animate='show'
+                  exit='hidden'
                   key={itemIndex}
                   className={`${index === itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
                   onClick={() => setIndex(itemIndex)}
                 >
                   {item.title}
 
-                </div>
+                </motion.div>
               )
             })}
           </div>
           <div className=" py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start" >
             {aboutData[index].info.map((item, itemIndex) => {
               return (
-                <div key={itemIndex} className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center">
+                <motion.div
+                  variants={fadeIn('up', 0.6)}
+                  initial='hidden'
+                  animate='show'
+                  exit='hidden'
+                  key={itemIndex} className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center">
                   <div className="font-light mb-2 md:mb-0 text-slate-400">{item.title}</div>
                   <div className="hidden md:flex">-</div>
                   <div>{item.stage}</div>
@@ -141,16 +160,27 @@ const About = () => {
                       )
                     })}
                   </div>
-                </div>
+                </motion.div>
               )
             })}
           </div>
-          <div className={`${index === 0 ? "" : 'hidden'}`}>
+          <motion.div
+            variants={fadeIn('up', 0.6)}
+            initial='hidden'
+            animate='show'
+            exit='hidden'
+            className={`${index === 0 ? "" : 'hidden'}`}>
             <p className="flex items-center">Frontend: <progress className="progress progress-primary w-56 ml-2" value="70" max="100"></progress> <span className="text-white"> (70%)</span> </p>
             <p className="flex items-center mt-5">Backend: <progress className="progress progress-primary w-56 ml-2" value="60" max="100"></progress> <span className="text-white"> (60%)</span> </p>
-          </div>
+          </motion.div>
         </div>
       </div>
+      <footer className="footer footer-center p-4 mt-0 lg:mt-12  bg-transparent text-white">
+        <aside>
+          <p className="text-white">Copyright © 2023 - All right reserved by <span >shohaib hossain</span></p>
+        </aside>
+      </footer>
+
     </div>
   );
 };
